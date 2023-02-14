@@ -5,5 +5,5 @@ ADD mongo_atlas_connection.py /home/dstairline_project/mongo_atlas_connection.py
 ADD routes_cron.py /home/dstairline_project/routes_cron.py
 ADD crontab /etc/cron.d/crontab
 WORKDIR /home/dstairline_project/
-RUN chmod 774 /tmp/crontab.urUjBA/crontab && crontab /tmp/crontab.urUjBA/crontab
+RUN chmod 774 /etc/cron.d/crontab && crontab /etc/cron.d/crontab
 ENTRYPOINT ["cron", "-f"]
