@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install python3-pip -y && pip3 install requests simplejson regex pymongo urllib3 beautifulsoup4
+ADD dst_airlines_functions.py /home/dstairline_project/dst_airlines_functions.py
+ADD mongo_atlas_connection.py /home/dstairline_project/mongo_atlas_connection.py
+ADD iata_scraping_wiki_en.py /home/dstairline_project/iata_scraping_wiki_en.py
+ADD routes_to_database.py /home/dstairline_project/routes_to_database.py
+WORKDIR /home/dstairline_project/
+CMD python3 iata_scraping_wiki_en.py && python3 routes_to_database.py
