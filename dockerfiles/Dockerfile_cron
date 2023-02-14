@@ -1,0 +1,7 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install python3-pip -y && pip3 install requests simplejson regex pymongo
+ADD dst_airlines_functions.py /home/dstairline_project/dst_airlines_functions.py
+ADD mongo_atlas_connection.py /home/dstairline_project/mongo_atlas_connection.py
+ADD routes_cron.py /home/dstairline_project/routes_cron.py
+WORKDIR /home/dstairline_project/
+CMD python3 routes_cron.py
